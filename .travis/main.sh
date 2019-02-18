@@ -67,10 +67,14 @@ echo 'TODO: PR to master approved ... merge from release -> master '
 
 release="release/$major.$minor.$emerg"
 git tag -a $release -m "Travis build: $TRAVIS_BUILD_NUMBER: Tag version $release"
-git checkout develop
-git merge --on-ff release
-git push --all origin 
 
+git checkout master
+git pull origin master
+
+git checkout -b develop
+git pull origin develop
+git merge release
+git push origin develop
 
 else 
 echo "ELSE: TRAVIS_BRANCH=$TRAVIS_BRANCH TRAVIS_PULL_REQUEST_BRANCH=$TRAVIS_PULL_REQUEST_BRANCH"
