@@ -30,6 +30,7 @@ git add '.travis/version.yml'
 
 git commit -a -m "Travis build: $TRAVIS_BUILD_NUMBER: Bumped version number to $release"
 
+git remote rm origin
 git remote add origin https://nickstanley574:${GH_TOKEN}@github.com/nickstanley574//pipeline-demo-protoype.git
 
 git push --all origin
