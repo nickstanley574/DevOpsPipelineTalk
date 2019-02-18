@@ -9,6 +9,8 @@ git log --oneline -n 5 .
 
 git branch -vv 
 
+exit 1
+
 if [ "$TRAVIS_BRANCH" == "develop" ]
 then
 
