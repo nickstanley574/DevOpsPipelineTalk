@@ -5,5 +5,5 @@ services:
 
 script:
   - ls -al
-  - sh .travis/main.sh
+  - bash .travis/main.sh
 
