@@ -1,3 +1,5 @@
+set -x
+
 if [ $TRAVIS ] && [ $CI ]
 then
 
