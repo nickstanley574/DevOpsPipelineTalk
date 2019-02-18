@@ -1,6 +1,9 @@
+language: generic
+
 services:
   - docker
 
 script:
   - docker --version
+  - echo $TRAVIS_BRANCH
   - exit 0 
