@@ -1,12 +1,13 @@
 # exit when any command fails
 set -e
+set -x
 
 
 echo "DEBUG: TRAVIS_BRANCH=$TRAVIS_BRANCH TRAVIS_PULL_REQUEST_BRANCH=$TRAVIS_PULL_REQUEST_BRANCH TRAVIS_EVENT_TYPE=$TRAVIS_EVENT_TYPE"
 
 git log --oneline -n 5 .
 
-git status . 
+git branch -vv 
 
 if [ "$TRAVIS_BRANCH" == "develop" ]
 then
