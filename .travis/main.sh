@@ -4,6 +4,10 @@ set -e
 
 echo "DEBUG: TRAVIS_BRANCH=$TRAVIS_BRANCH TRAVIS_PULL_REQUEST_BRANCH=$TRAVIS_PULL_REQUEST_BRANCH TRAVIS_EVENT_TYPE=$TRAVIS_EVENT_TYPE"
 
+git log --oneline -n 5 .
+
+git status . 
+
 if [ "$TRAVIS_BRANCH" == "develop" ]
 then
 
