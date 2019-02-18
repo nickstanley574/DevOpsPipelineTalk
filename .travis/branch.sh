@@ -15,7 +15,6 @@ release="release/$major.$minor.$emerg"
 
 git config --global user.email "travis@travis-ci.org"
 git config --global user.name "Travis CI"
-git config --global github.token $GH_TOKEN_TRAVISCI  
 
 git checkout -b $release develop
 
@@ -31,7 +30,7 @@ git add '.travis/version.yml'
 git commit -a -m "Travis build: $TRAVIS_BUILD_NUMBER: Bumped version number to $release"
 
 git remote rm origin
-git remote add origin https://nickstanley574:${GH_TOKEN}@github.com/nickstanley574//pipeline-demo-protoype.git
+git remote add origin https://nickstanley574:${GH_TOKEN_TRAVISCI}@github.com/nickstanley574/pipeline-demo-protoype.git
 
 git push --all origin
 
