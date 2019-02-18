@@ -42,12 +42,14 @@ EOL
 
 git add "$VERSIONFILE"
 git commit -a -m "Travis build: $TRAVIS_BUILD_NUMBER: Bumped version number to $release"
+git remote rm origin
+git remote add origin https://nickstanley574:${GH_TOKEN_TRAVISCI}@github.com/nickstanley574/pipeline-demo-protoype.git
+git push origin release
+
 git checkout -b develop
 git pull origin develop
 git merge release
-git remote rm origin
-git remote add origin https://nickstanley574:${GH_TOKEN_TRAVISCI}@github.com/nickstanley574/pipeline-demo-protoype.git
-git push --all origin
+git push origin develop
 
 
 elif [ "$TRAVIS_PULL_REQUEST_BRANCH" == "release" ] && [ "$TRAVIS_BRANCH" == "master" ];then 
