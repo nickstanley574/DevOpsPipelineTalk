@@ -41,7 +41,7 @@ minor: ${minor}
 emerg: ${emerg}
 EOL
 
-git checkout -b release
+git checkout release
 git pull origin release
 
 git add "$VERSIONFILE"
