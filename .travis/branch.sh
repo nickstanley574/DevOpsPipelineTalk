@@ -11,6 +11,10 @@ minor=$((minor+1))
 
 release="release/$major.$minor.$emerg"
 
+git config --global user.email "travis@travis-ci.org"
+git config --global user.name "Travis CI"
+git config --global github.token $GH_TOKEN_TRAVISCI  
+
 git checkout -b $release develop
 
 cat >$VERSIONFILE <<EOL
@@ -22,7 +26,7 @@ EOL
 
 git add '.travis/version.yml'
 
-git commit -a -m "Bumped version number to $release"
+git commit -a -m "Travis build: $TRAVIS_BUILD_NUMBER: Bumped version number to $release"
 
 git push --all origin
 
