@@ -28,7 +28,7 @@ echo "TODO: DEVELOP BUILD AND DEPLOYMENT"
 elif [ "$TRAVIS_PULL_REQUEST_BRANCH" == "develop" ] && [ "$TRAVIS_BRANCH" == "release" ];  then 
 echo 'TODO: PR created develop -> release ... run tests'
 
-elif [ "$TRAVIS_BRANCH" == "release" ] && [ "$TRAVIS_EVENT_TYPE" == "push" ]  && [ "$COMMIT_MESSAGE_SNIP" == "Merge pull request"];then 
+elif [ "$TRAVIS_BRANCH" == "release" ] && [ "$TRAVIS_EVENT_TYPE" == "push" ]  && [ "$COMMIT_MESSAGE_SNIP" == "Merge pull request" ];then 
 echo "TODO: PR to release approved ... do post PR tasks"
 
 minor=$((minor+1))
