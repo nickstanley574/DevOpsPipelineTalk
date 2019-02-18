@@ -11,7 +11,7 @@ exit 1
 fi
 
 VERSIONFILE='.travis/version.yml'
-COMMIT_MESSAGE_SNIP=$($TRAVIS_COMMIT_MESSAGE | cut -d' ' -f1-3)
+COMMIT_MESSAGE_SNIP=$(echo $TRAVIS_COMMIT_MESSAGE | cut -d' ' -f1-3)
 
 major=$(grep 'major' $VERSIONFILE | awk '{ print $2}')
 minor=$(grep 'minor' $VERSIONFILE | awk '{ print $2}')
