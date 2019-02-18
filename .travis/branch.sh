@@ -20,7 +20,7 @@ git config --global user.email "travis@travis-ci.org"
 git config --global user.name "Travis CI"
 
 
-if [ "$ACTION" == "CREATE"]
+if [ "$ACTION" == "CREATE" ]
 then
 
 minor=$((minor+1))
@@ -44,7 +44,7 @@ git remote add origin https://nickstanley574:${GH_TOKEN_TRAVISCI}@github.com/nic
 
 git push --all origin
 
-elif [ "$ACTION" == "RELEASE"]
+elif [ "$ACTION" == "RELEASE" ]
 then 
 
 release="release/$major.$minor.$emerg"
