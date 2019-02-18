@@ -4,8 +4,5 @@ services:
   - docker
 
 script:
-  - docker --version
-  - echo $TRAVIS_BRANCH
-  - echo $TRAVIS_TAG
-  - echo $TRAVIS_BUILD_WEB_URL
-  - exit 0 
+  - bash .travis/main.sh
+
