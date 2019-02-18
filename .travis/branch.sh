@@ -54,6 +54,7 @@ git checkout develop
 git merge --no-ff $release
 git tag -a $release -m "Travis build: $TRAVIS_BUILD_NUMBER: Tag version $release"
 git branch -d $release
+git push origin --delete $release
 
 git push --all origin
 
