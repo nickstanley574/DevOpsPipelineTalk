@@ -27,7 +27,7 @@ elif [ "$TRAVIS_PULL_REQUEST_BRANCH" == "develop" ] && [ "$TRAVIS_BRANCH" == "re
 echo 'TODO: PR created develop -> release ... run tests'
 
 
-elif [ "$TRAVIS_BRANCH" == "release" ] && [ "TRAVIS_EVENT_TYPE" == "push" ];then 
+elif [ "$TRAVIS_BRANCH" == "release" ] && [ "$TRAVIS_EVENT_TYPE" == "push" ];then 
 echo "TODO: PR to release approved ... do post PR tasks"
 
 minor=$((minor+1))
