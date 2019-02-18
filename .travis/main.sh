@@ -7,14 +7,14 @@ then
 
     echo "DEVELOP BUILD AND DEPLOYMENT"
 
-# For pull reguest to stagging
-elif [ "$TRAVIS_PULL_REQUEST_BRANCH" == "develop" ] && [ "$TRAVIS_BRANCH" == "stagging" ]
+# For pull reguest to staging
+elif [ "$TRAVIS_PULL_REQUEST_BRANCH" == "develop" ] && [ "$TRAVIS_BRANCH" == "staging" ]
 then 
     echo "DEPLOY TO STAGGING"
     bash .travis/branch.sh "CREATE"
 
-# For pull reguest to stagging
-elif [ "$TRAVIS_PULL_REQUEST_BRANCH" == "stagging" ] && [ "$TRAVIS_BRANCH" == "MASTER" ]
+# For pull reguest to master
+elif [ "$TRAVIS_PULL_REQUEST_BRANCH" == "staging" ] && [ "$TRAVIS_BRANCH" == "master" ]
 then 
     echo "DEPLOY TO MASTER"
     bash .travis/branch.sh "RELEASE"
