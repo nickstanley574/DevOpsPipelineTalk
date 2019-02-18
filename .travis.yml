@@ -4,5 +4,6 @@ services:
   - docker
 
 script:
-  - .travis/main.sh
+  - ls -al
+  - sh .travis/main.sh
 
