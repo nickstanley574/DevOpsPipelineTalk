@@ -11,6 +11,8 @@ exit 1
 fi
 
 VERSIONFILE='.travis/version.yml'
+COMMIT_MESSAGE_SNIP=$TRAVIS_COMMIT_MESSAGE | cut -d' ' -f1-3
+
 major=$(grep 'major' $VERSIONFILE | awk '{ print $2}')
 minor=$(grep 'minor' $VERSIONFILE | awk '{ print $2}')
 emerg=$(grep 'emerg' $VERSIONFILE | awk '{ print $2}')
@@ -23,11 +25,10 @@ then
 
 echo "TODO: DEVELOP BUILD AND DEPLOYMENT"
 
-elif [ "$TRAVIS_PULL_REQUEST_BRANCH" == "develop" ] && [ "$TRAVIS_BRANCH" == "release" ]; then 
+elif [ "$TRAVIS_PULL_REQUEST_BRANCH" == "develop" ] && [ "$TRAVIS_BRANCH" == "release" ];  then 
 echo 'TODO: PR created develop -> release ... run tests'
 
-
-elif [ "$TRAVIS_BRANCH" == "release" ] && [ "$TRAVIS_EVENT_TYPE" == "push" ];then 
+elif [ "$TRAVIS_BRANCH" == "release" ] && [ "$TRAVIS_EVENT_TYPE" == "push" ]  && [ "$COMMIT_MESSAGE_SNIP" == "Merge pull request"];then 
 echo "TODO: PR to release approved ... do post PR tasks"
 
 minor=$((minor+1))
@@ -40,10 +41,15 @@ minor: ${minor}
 emerg: ${emerg}
 EOL
 
+git checkout -b release
+git pull origin release
+
 git add "$VERSIONFILE"
 git commit -a -m "Travis build: $TRAVIS_BUILD_NUMBER: Bumped version number to $release"
+
 git remote rm origin
 git remote add origin https://nickstanley574:${GH_TOKEN_TRAVISCI}@github.com/nickstanley574/pipeline-demo-protoype.git
+
 git push origin release
 
 git checkout -b develop
