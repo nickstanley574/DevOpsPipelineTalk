@@ -42,8 +42,8 @@ EOL
 
 git add "$VERSIONFILE"
 git commit -a -m "Travis build: $TRAVIS_BUILD_NUMBER: Bumped version number to $release"
-git fetch origin develop
-git checkout develop
+git checkout -b develop
+git pull origin develop
 git merge release
 git remote rm origin
 git remote add origin https://nickstanley574:${GH_TOKEN_TRAVISCI}@github.com/nickstanley574/pipeline-demo-protoype.git
