@@ -1,4 +1,4 @@
-if [ $TRAVIS ] && [ $CI ]; 
+if [ $TRAVIS ] && [ $CI ]
 then
 
 VERSIONFILE='.travis/version.yml'
@@ -23,6 +23,8 @@ EOL
 git add '.travis/version.yml'
 
 git commit -a -m "Bumped version number to $release"
+
+git push --all origin
 
 else
 
