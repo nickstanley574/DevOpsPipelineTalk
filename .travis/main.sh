@@ -64,7 +64,7 @@ elif [ "$TRAVIS_PULL_REQUEST_BRANCH" == "release" ] && [ "$TRAVIS_BRANCH" == "ma
 echo 'TODO: PR created release -> master ... run tests'
 
 
-elif [ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_EVENT_TYPE" == "push"];then
+elif [ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_EVENT_TYPE" == "push" ];then
 echo 'TODO: PR to master approved ... merge from release -> master '
 
 release="release/$major.$minor.$emerg"
@@ -76,11 +76,6 @@ git checkout -b develop
 git pull origin develop
 git merge master
 git push origin develop
-
-git checkout -b release
-git pull origin release 
-git merge master 
-git push origin release
 
 else 
 echo "ELSE: TRAVIS_BRANCH=$TRAVIS_BRANCH TRAVIS_PULL_REQUEST_BRANCH=$TRAVIS_PULL_REQUEST_BRANCH"
