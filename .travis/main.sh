@@ -42,12 +42,12 @@ minor: ${minor}
 emerg: ${emerg}
 EOL
 
+git remote rm origin
+git remote add origin https://nickstanley574:${GH_TOKEN_TRAVISCI}@github.com/nickstanley574/pipeline-demo-protoype.git
 git checkout release
 git pull origin release
 git add "$VERSIONFILE"
 git commit -a -m "Travis build: $TRAVIS_BUILD_NUMBER: Bumped version number to $release"
-git remote rm origin
-git remote add origin https://nickstanley574:${GH_TOKEN_TRAVISCI}@github.com/nickstanley574/pipeline-demo-protoype.git
 git push origin release
 git checkout -b develop
 git pull origin develop
@@ -62,10 +62,10 @@ elif [ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_EVENT_TYPE" == "push" ];then
 echo 'TODO: PR to master approved ... merge from release -> master '
 release="release/$major.$minor.$emerg"
 
-git tag -a $release -m "Travis build: $TRAVIS_BUILD_NUMBER: Tag version $release"
-git push origin $release
 git remote rm origin
 git remote add origin https://nickstanley574:${GH_TOKEN_TRAVISCI}@github.com/nickstanley574/pipeline-demo-protoype.git
+git tag -a $release -m "Travis build: $TRAVIS_BUILD_NUMBER: Tag version $release"
+git push origin $release
 git push origin master
 git checkout -b develop
 git pull origin develop
