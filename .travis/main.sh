@@ -60,11 +60,12 @@ echo 'TODO: PR created release -> master ... run tests'
 
 elif [ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_EVENT_TYPE" == "push" ];then
 echo 'TODO: PR to master approved ... merge from release -> master '
-release="release/$major.$minor.$emerg"
+release_num="$major.$minor.$emerg"
+release="release/$release_num"
 
 git remote rm origin
 git remote add origin https://nickstanley574:${GH_TOKEN_TRAVISCI}@github.com/nickstanley574/pipeline-demo-protoype.git
-git tag -a $release -m "Travis build: $TRAVIS_BUILD_NUMBER: Tag version $release"
+git tag -a $release_num -m "Travis build: $TRAVIS_BUILD_NUMBER: Tag version $release"
 git push origin $release
 git push origin master
 git checkout -b develop
