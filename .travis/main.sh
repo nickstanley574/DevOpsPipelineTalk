@@ -2,6 +2,7 @@
 set -e
 set -x
 
+# PreChecks 
 if [ $TRAVIS ] && [ $CI ]
 then
 echo "We are in a TravisCI env script continuing..."
@@ -10,6 +11,7 @@ echo "This script is meant to run ONLY TravisCI you should NOT run this!!!"
 exit 1
 fi
 
+# Setup Variables 
 VERSIONFILE='.travis/version.yml'
 COMMIT_MESSAGE_SNIP=$(echo $TRAVIS_COMMIT_MESSAGE | cut -d' ' -f1-3)
 
@@ -66,15 +68,19 @@ elif [ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_EVENT_TYPE" == "push"];then
 echo 'TODO: PR to master approved ... merge from release -> master '
 
 release="release/$major.$minor.$emerg"
-git tag -a $release -m "Travis build: $TRAVIS_BUILD_NUMBER: Tag version $release"
 
-git checkout master
-git pull origin master
+git tag -a $release -m "Travis build: $TRAVIS_BUILD_NUMBER: Tag version $release"
+git push origin master
 
 git checkout -b develop
 git pull origin develop
-git merge release
+git merge master
 git push origin develop
+
+git checkout -b release
+git pull origin release 
+git merge master 
+git push origin release
 
 else 
 echo "ELSE: TRAVIS_BRANCH=$TRAVIS_BRANCH TRAVIS_PULL_REQUEST_BRANCH=$TRAVIS_PULL_REQUEST_BRANCH"
