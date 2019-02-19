@@ -70,6 +70,10 @@ echo 'TODO: PR to master approved ... merge from release -> master '
 release="release/$major.$minor.$emerg"
 
 git tag -a $release -m "Travis build: $TRAVIS_BUILD_NUMBER: Tag version $release"
+
+git remote rm origin
+git remote add origin https://nickstanley574:${GH_TOKEN_TRAVISCI}@github.com/nickstanley574/pipeline-demo-protoype.git
+
 git push origin master
 
 git checkout -b develop
