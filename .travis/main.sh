@@ -47,7 +47,7 @@ git remote add origin https://nickstanley574:${GH_TOKEN_TRAVISCI}@github.com/nic
 git checkout release
 git pull origin release
 git add "$VERSIONFILE"
-git commit -a -m "Travis build: $TRAVIS_BUILD_NUMBER: Bumped version number to $release"
+git commit -a -m "Travis build $TRAVIS_BUILD_NUMBER: Bumped version number to $release"
 git push origin release
 git checkout -b develop
 git pull origin develop
@@ -65,8 +65,8 @@ release="release/$release_num"
 
 git remote rm origin
 git remote add origin https://nickstanley574:${GH_TOKEN_TRAVISCI}@github.com/nickstanley574/pipeline-demo-protoype.git
-git tag -a $release_num -m "Travis build: $TRAVIS_BUILD_NUMBER: Tag version $release"
-git push origin $release
+git tag -a $release_num -m "Travis build $TRAVIS_BUILD_NUMBER: Tag version $release"
+git push origin $release_num
 git push origin master
 git checkout -b develop
 git pull origin develop
