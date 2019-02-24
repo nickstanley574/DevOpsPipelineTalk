@@ -1,4 +1,7 @@
 #! /bin/bash
 echo "deploying ..."
-sleep 2
+
+heroku --version
+
+
 echo "Done!"

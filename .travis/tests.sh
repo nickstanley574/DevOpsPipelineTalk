@@ -1,5 +1,7 @@
 #! /bin/bash
 
+heroku --version
+
 echo "test 1:"
 sleep 1
 echo "PASSED"
