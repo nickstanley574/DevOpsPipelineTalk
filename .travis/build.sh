@@ -19,12 +19,17 @@ fi
 
 echo "$DOCKER_PASSWORD_TRAVIS" | docker login -u "$DOCKER_USERNAME_TRAVIS" --password-stdin
 
+DOCKERRPO="nickstanley574/pipeline-demo-protoype"
+TAGSTR=""
 echo "Build docker image:"
 for tag in {$BUILDTAG,$ENVTAG}; do
-    docker build -t nickstanley574/pipeline-demo-protoype:${tag} .
-    docker push nickstanley574/pipeline-demo-protoype:${tag}
+    $TAGSTR+="-t $DOCKERRPO:$tag "
 done
 
+docker build $TAGSTR .
+
 echo "Push Dockerbuild to dockerhub"
+docker push nickstanley574/pipeline-demo-protoype:${tag}
+
 
 echo "Done."
