@@ -6,6 +6,10 @@ echo "Building ..."
 pwd
 ls -al
 
+git status 
+
+git log -n 10 --pretty=format:"%h - %an, %ar : %s"
+
 if [ "$TRAVIS_BRANCH" == "develop" ]
 then
     TAG1='develop'
@@ -14,8 +18,6 @@ else
     TAG1=$TRAVIS_COMMIT
     TAG2=$TRAVIS_BUILD_ID
 fi
-
-docker image ls
 
 echo "Build docker image:"
 docker build -t nickstanley574/pipeline-demo-protoype:$TAG1 -t nickstanley574/pipeline-demo-protoype:$TAG2 .
