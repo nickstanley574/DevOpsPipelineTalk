@@ -1,6 +1,10 @@
+git:
+  depth: 3
+
 jobs:
   include:
     - stage: "Build"
+    
       script: .travis/build.sh 
       if: branch = develop
     - stage: "Test"
