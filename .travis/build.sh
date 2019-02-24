@@ -8,23 +8,22 @@ ls -al
 
 git status 
 
-git log -n 10 --pretty=format:"%h - %an, %ar : %s"
+git log -n 5 --pretty=format:"%h - %an, %ar : %s"
+
+BUILDTAG="build-$TRAVIS_BUILD_NUMBER"
 
 if [ "$TRAVIS_BRANCH" == "develop" ]
 then
-    TAG1='develop'
-    TAG2=$(.travis/version.sh)
-else
-    TAG1=$TRAVIS_COMMIT
-    TAG2=$TRAVIS_BUILD_ID
+    ENVTAG='develop'
 fi
 
 echo "Build docker image:"
-docker build -t nickstanley574/pipeline-demo-protoype:$TAG1 -t nickstanley574/pipeline-demo-protoype:$TAG2 .
+for tag in {$BUILDTAG,$ENVTAG}; do
+    docker build -t nickstanley574/pipeline-demo-protoype:${tag}
+done
 
 echo "Push Dockerbuild to dockerhub"
 echo "$DOCKER_PASSWORD_TRAVIS" | docker login -u "$DOCKER_USERNAME_TRAVIS" --password-stdin
-docker push nickstanley574/pipeline-demo-protoype:$TAG1
-docker push nickstanley574/pipeline-demo-protoype:$TAG2
+docker push nickstanley574/pipeline-demo-protoype:$TAG
 
 echo "Done."
