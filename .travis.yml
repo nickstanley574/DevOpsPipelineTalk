@@ -8,4 +8,4 @@ jobs:
       script: .travis/tests.sh
     - stage: "Deploy"
       if: branch = develop
-      script: ".travis/Deploy.sh"
+      script: ".travis/deploy.sh"
