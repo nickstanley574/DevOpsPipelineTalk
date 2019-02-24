@@ -1,4 +1,5 @@
 # pipeline-demo-protoype
+Nicholas Stanley
 
 https://wsvincent.com/django-hello-world-with-docker/
 
