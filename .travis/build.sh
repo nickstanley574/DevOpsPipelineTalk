@@ -13,7 +13,7 @@ then
 else
     TAG1=$TRAVIS_COMMIT
     TAG2=$TRAVIS_BUILD_ID
-if
+fi
 
 echo "Build docker image:"
 docker build -t $TAG1 -t $TAG2 .
