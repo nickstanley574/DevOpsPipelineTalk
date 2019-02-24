@@ -23,7 +23,7 @@ DOCKERRPO="nickstanley574/pipeline-demo-protoype"
 TAGSTR=""
 echo "Build docker image:"
 for tag in {$BUILDTAG,$ENVTAG}; do
-    $TAGSTR+="-t $DOCKERRPO:$tag "
+    TAGSTR+="-t $DOCKERRPO:$tag "
 done
 
 docker build $TAGSTR .
