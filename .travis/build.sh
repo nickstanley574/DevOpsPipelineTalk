@@ -18,7 +18,7 @@ fi
 docker image ls
 
 echo "Build docker image:"
-docker build -t $TAG1 -t $TAG2 .
+docker build -t nickstanley574/pipeline-demo-protoype:$TAG1 -t nickstanley574/pipeline-demo-protoype:$TAG2 .
 
 echo "Push Dockerbuild to dockerhub"
 echo "$DOCKER_PASSWORD_TRAVIS" | docker login -u "$DOCKER_USERNAME_TRAVIS" --password-stdin
