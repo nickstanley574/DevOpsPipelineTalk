@@ -3,7 +3,6 @@ set -e
 set -x
 
 echo "Building ..."
-cd ..
 pwd
 ls -al
 
