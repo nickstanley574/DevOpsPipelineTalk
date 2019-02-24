@@ -1,11 +1,14 @@
+git:
+  depth: 5
+
 jobs:
   include:
     - stage: "Build"
       script: .travis/build.sh 
-      if: branch = develop
+      if: (branch = develop)
     - stage: "Test"
       if: branch =~ /(feature\/.*|ops\/.*|develop)/
       script: .travis/tests.sh
     - stage: "Deploy"
-      if: branch = develop
+      if: branch =~ /(develop|stage|master)/
       script: ".travis/deploy.sh"
