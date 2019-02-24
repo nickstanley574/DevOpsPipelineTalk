@@ -15,6 +15,8 @@ else
     TAG2=$TRAVIS_BUILD_ID
 fi
 
+docker image ls
+
 echo "Build docker image:"
 docker build -t $TAG1 -t $TAG2 .
 
