@@ -1,8 +1,11 @@
-language: generic
-
-services:
-  - docker
-
-script:
-  - bash .travis/main.sh
-
+jobs:
+  include:
+    - stage: "Build"
+      script: .travis/build.sh 
+      if: branch = develop
+    - stage: "Test"
+      if: branch =~ /(feature\/.*|ops\/.*|develop)/
+      script: .travis/tests.sh
+    - stage: "Deploy"
+      if: branch = develop
+      script: ".travis/deploy.sh"
