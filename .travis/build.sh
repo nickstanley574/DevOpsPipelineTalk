@@ -17,13 +17,14 @@ then
     ENVTAG='develop'
 fi
 
+echo "$DOCKER_PASSWORD_TRAVIS" | docker login -u "$DOCKER_USERNAME_TRAVIS" --password-stdin
+
 echo "Build docker image:"
 for tag in {$BUILDTAG,$ENVTAG}; do
-    docker build -t nickstanley574/pipeline-demo-protoype:${tag}
+    docker build -t nickstanley574/pipeline-demo-protoype:${tag} .
+    docker push nickstanley574/pipeline-demo-protoype:${tag}
 done
 
 echo "Push Dockerbuild to dockerhub"
-echo "$DOCKER_PASSWORD_TRAVIS" | docker login -u "$DOCKER_USERNAME_TRAVIS" --password-stdin
-docker push nickstanley574/pipeline-demo-protoype:$TAG
 
 echo "Done."
