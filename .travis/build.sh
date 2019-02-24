@@ -7,7 +7,7 @@ git log -n 5 --pretty=format:"%h - %an, %ar : %s"
 
 BUILDTAG="build-$TRAVIS_BUILD_NUMBER"
 
-if [ "$TRAVIS_BRANCH" == "develop" ] && [ $TRAVIS_EVENT_TYPE == "push" ]
+if [ "$TRAVIS_BRANCH" == "develop" ] && [ "$TRAVIS_EVENT_TYPE" == "push" ]
 then
     ENVTAG='develop'
 fi
