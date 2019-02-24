@@ -1,11 +1,11 @@
 jobs:
   include:
     - stage: "Build"
-      script: ./build.sh 
+      script: .travis/build.sh 
       if: branch = develop
     - stage: "Test"
       if: branch =~ /(feature\/.*|ops\/.*|develop)/
-      script: ./tests.sh
+      script: .travis/tests.sh
     - stage: "Deploy"
       if: branch = develop
-      script: "./Deploy.sh"
+      script: ".travis/Deploy.sh"
