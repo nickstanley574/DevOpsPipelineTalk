@@ -3,11 +3,8 @@
 set -x
 
 heroku --version
-heroku auth:token
 sleep 1
-cat ~/.netrc
-sleep 1
-export HEROKU_API_KEY=$HEROKU_TOKEN_DEVELOP
+heroku config:set HEROKU_API_KEY=$HEROKU_TOKEN_DEVELOP
 sleep 1
 heroku apps
 
