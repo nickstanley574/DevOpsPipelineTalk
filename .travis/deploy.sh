@@ -1,13 +1,13 @@
 #! /bin/bash
 echo "deploying ..."
 
+set -e
+set -x 
+
 docker logout
-docker login -u $HEROKU_USER -p $HEROKU_KEY
+docker login -u "$HEROKU_USER" -p "$HEROKU_KEY" registry.heroku.com
 heroku container:login
-sleep 10
-heroku apps
-sleep 10
-heroku config
-sleep 10
+
+
 
 echo "Done!"
