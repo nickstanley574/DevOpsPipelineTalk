@@ -1,7 +1,6 @@
 #! /bin/bash
 echo "deploying ..."
 
-heroku --version
-
+heroku apps
 
 echo "Done!"
