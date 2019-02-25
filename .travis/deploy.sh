@@ -19,8 +19,12 @@ docker tag nickstanley574/pipeline-demo-protoype:develop registry.heroku.com/dev
 docker login -u "$HEROKU_USER" -p "$HEROKU_KEY" registry.heroku.com
 heroku container:login
 
-heroku container:push web
-heroku container:release web
+docker image ls 
+
+
+
+heroku --app develop-simplelookup container:push web
+heroku --app develop-simplelookup container:release web
  
 
 
