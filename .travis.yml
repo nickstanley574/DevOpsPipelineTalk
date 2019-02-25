@@ -9,7 +9,7 @@ jobs:
     if: branch =~ /(feature\/.*|ops\/.*|develop)/
     script: ".travis/tests.sh"
   - stage: Deploy
-    if: branch =~ /(develop|stage|master)/
+    if: branch =~ /(develop|stage|master|ops\/.*)/
     deploy:
       provider: heroku
       api_key:
