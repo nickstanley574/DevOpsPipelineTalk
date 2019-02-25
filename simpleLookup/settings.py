@@ -25,7 +25,7 @@ SECRET_KEY = '-j5xaovf0-6@gpj4%^@h$*jfg$orp(9e3h%ab&jf28soeazv1r'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['dev-simplelookup.herokuapp.com', 'stage-simplelookup.herokuapp.com','simplelookup.herokuapp.com']
+ALLOWED_HOSTS = ['develop-simplelookup.herokuapp.com', 'stage-simplelookup.herokuapp.com','simplelookup.herokuapp.com']
 
 # Application definition
 
