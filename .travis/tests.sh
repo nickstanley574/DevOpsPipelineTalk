@@ -3,9 +3,9 @@
 set -x
 
 heroku --version
-sleep 1
-heroku config:set HEROKU_API_KEY=$HEROKU_TOKEN_DEVELOP
-sleep 1
+sleep 10
+heroku config:set HEROKU_API_KEY=$HEROKU_TOKEN_DEVELOP --app 'develop-simplelookup'
+sleep 10
 heroku apps
 
 echo "test 1:"
