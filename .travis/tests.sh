@@ -1,7 +1,11 @@
 #! /bin/bash
 
 heroku --version
+sleep 1
+cat ~/.netrc
+sleep 1
 export HEROKU_API_KEY=$HEROKU_TOKEN_DEVELOP
+sleep 1
 heroku apps
 
 echo "test 1:"
