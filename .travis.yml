@@ -11,6 +11,6 @@ jobs:
     if: branch =~ /(feature\/.*|ops\/.*|develop)/
     script: ".travis/tests.sh"
   - stage: Deploy
-    if: branch =~ /(develop|stage|master)/
+    if: branch =~ /(develop|stage|master)/ AND (type != pull_request)
     script: ".travis/deploy.sh"
 
