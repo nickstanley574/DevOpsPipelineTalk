@@ -1,6 +1,9 @@
 #! /bin/bash
 
+set -x
+
 heroku --version
+heroku auth:token
 sleep 1
 cat ~/.netrc
 sleep 1
