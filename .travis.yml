@@ -18,4 +18,6 @@ jobs:
         secure: ACLapgCDl29wgwrLn0qnu3uVN7zMEeCsiOZd/r72j6IWfd1ApUKfDg54RekHqAIUtOsdW3tgvXgna2H5litCZVQ91G7z53MaM6LfORSJpW8xYK1VP5u8dXiWqme1errron9xTOPLjD1XSO7mL8oB90KNE6pVnq4O3j+PBgILQeKSlhh9rVEiPqjNNvZMtS039fGck6FAqviClTOqQVl1eiLw+YAtRFgcx4GD2oLldCjnsXSWAA5j4tl2iKibTgqM6Mn2jfPwrNOcvPZZCbI03Cb3bDOuAoNOzHc7Ul55xuP2e8SLjvrtZ3zE2d3Kb/kw0iLxQETzsa48o4Ani+piYSk7ymrUUU4st2psuadi+Vjuijy/0iLINKupeDClYjnY9HmWja9q5dNQrwAXY1+yywoqAxVd5P1IQNUuTGehVbnGYVZB9f2WdvvE+ARGEmCscXVbZySmlc9GQq7W9uX/StuSXlYqqQFDPlkhS1mBPliLC2UYJEsHw/TglBHC1N1tKo7M3xDlod+6CeUfj2dEMDrhU+Elxif/oDcOQfBsBelrh5xGrOg57StU/UpkqOt9MvIqs5wSisqwxjIp5RNokNNNB76xiABK/xnqOAqUVglSpcfEkwZF3cLGJ+7bWbVzXrtyAgYNZN7hJu58jDclK0YXM4j7jZnia1dPAKRORSE=
       app: develop-simplelookup
       script: ".travis/deploy.sh"
+      on:
+        all_branches: true
 
