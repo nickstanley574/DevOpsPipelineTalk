@@ -12,8 +12,5 @@ jobs:
     script: ".travis/tests.sh"
   - stage: Deploy
     if: branch =~ /(develop|stage|master|ops\/.*)/
-    deploy:
-      script: ".travis/deploy.sh"
-      on:
-        all_branches: true
+    script: ".travis/deploy.sh"
 
