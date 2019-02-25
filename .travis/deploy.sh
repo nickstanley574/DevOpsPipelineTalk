@@ -13,9 +13,15 @@ machine git.heroku.com
     password $HEROKU_KEY
 EOF
 
-docker login -u "$HEROKU_USER" -p "$HEROKU_KEY" registry.heroku.com
+docker image pull nickstanley574/pipeline-demo-protoype:develop
+docker tag nickstanley574/pipeline-demo-protoype:develop registry.heroku.com/develop-simplelookup/web
 
-HEROKU_DEBUG=true HEROKU_DEBUG_HEADERS=1 heroku container:login
+docker login -u "$HEROKU_USER" -p "$HEROKU_KEY" registry.heroku.com
+heroku container:login
+
+heroku container:push web
+heroku container:release web
+ 
 
 
 
