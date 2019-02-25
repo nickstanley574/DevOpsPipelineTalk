@@ -21,7 +21,7 @@ heroku container:login
 
 docker image ls 
 
-heroku --apps develop-simplelookup container:push web
-heroku --apps develop-simplelookup container:release web
+heroku container:push web --app develop-simplelookup
+heroku container:release web --app develop-simplelookup
  
 echo "Done!"
