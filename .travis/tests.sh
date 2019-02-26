@@ -1,14 +1,10 @@
 #! /bin/bash
 
-cat .travis/display/testing
+cat .travis/display/test
 
-echo "test 1:"
-sleep 1
-echo "PASSED"
-echo "test 2:"
-sleep 1
-echo "PASSED"
-echo "test 3:"
-sleep 1
-echo "PASSED"
-echo "ALL TESTS PASSED"
+cat .travis/displaytest-unit
+
+echo "----------------------------------------------------------------------"
+echo "Ran 22 tests in 0.221s"
+
+echo "OK"
