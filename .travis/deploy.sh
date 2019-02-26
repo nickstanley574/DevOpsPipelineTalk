@@ -23,11 +23,11 @@ if [ "$TRAVIS_BRANCH" == 'develop']
 then
 docker image pull nickstanley574/uicpipeline:develop
 else
-    echo "PROMOTING TAG ..."
-    docker image pull nickstanley574/uicpipeline:$BASE
-    docker tag nickstanley574/uicpipeline:$BASE nickstanley574/uicpipeline:$PROMOT
-    echo "$DOCKER_PASSWORD_TRAVIS" | docker login -u "$DOCKER_USERNAME_TRAVIS" --password-stdin
-    docker push nickstanley574/uicpipeline:$PROMOT
+echo "PROMOTING TAG ..."
+docker image pull nickstanley574/uicpipeline:$BASE
+docker tag nickstanley574/uicpipeline:$BASE nickstanley574/uicpipeline:$PROMOT
+echo "$DOCKER_PASSWORD_TRAVIS" | docker login -u "$DOCKER_USERNAME_TRAVIS" --password-stdin
+docker push nickstanley574/uicpipeline:$PROMOT
 fi
 
 docker tag nickstanley574/uicpipeline:$TAG registry.heroku.com/uicpipeline-$TAG/web
