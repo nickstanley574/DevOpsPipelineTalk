@@ -1,5 +1,7 @@
 #! /bin/bash
 
+cat .travis/display/testing
+
 echo "test 1:"
 sleep 1
 echo "PASSED"
