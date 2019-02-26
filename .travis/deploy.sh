@@ -13,6 +13,7 @@ BASE="develop"
 PROMOT="stage"
 
 elif  [ "$TRAVIS_BRANCH" == "master" ]
+then
 BASE="stage"
 PROMOT="latest"
 TAG="latest"
