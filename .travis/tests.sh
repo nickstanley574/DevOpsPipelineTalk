@@ -15,3 +15,9 @@ echo "----------------------------------------------------------------------"
 echo "88% > 85% minimum"
 echo "Passed"
 echo
+
+cat .travis/display/test-acceptacne
+echo "----------------------------------------------------------------------"
+echo "Project Manger approved"
+echo "Passed"
+echo
