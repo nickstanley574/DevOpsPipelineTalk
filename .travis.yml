@@ -10,7 +10,10 @@ jobs:
   - stage: Test
     if: branch =~ /(feature\/.*|ops\/.*|develop)/
     script: ".travis/tests.sh"
+  - stage: Deploy Approvls
+    if: (branch IN (develop,stage,master)) AND (type = pull_request)
+    script: "echo 'PLACEHOLDER'"
   - stage: Deploy
-    if: branch =~ /(develop|stage|master)/ AND (type != pull_request)
+    if: (branch IN (develop,stage,master)) AND (type != pull_request)
     script: ".travis/deploy.sh"
 
