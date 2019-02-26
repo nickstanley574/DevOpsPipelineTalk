@@ -20,7 +20,7 @@ TAG="latest"
 APP="uicpipeline"
 fi
 
-if [ "$TRAVIS_BRANCH" == 'develop']
+if [ "$TRAVIS_BRANCH" == 'develop' ]
 then
 docker image pull nickstanley574/uicpipeline:develop
 else
