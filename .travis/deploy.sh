@@ -4,6 +4,37 @@ echo "deploying ..."
 set -e
 set -x 
 
+TAG="$TRAVIS_BRANCH"
+APP="uicpipeline-$TRAVIS_BRANCH"
+
+if [ "$TRAVIS_BRANCH" == "stage" ]
+then 
+BASE="develop"
+PROMOT="stage"
+
+elif  [ "$TRAVIS_BRANCH" == "master" ]
+then
+BASE="stage"
+PROMOT="latest"
+TAG="latest"
+APP="uicpipeline"
+fi
+
+if [ "$TRAVIS_BRANCH" == 'develop']
+then
+docker image pull nickstanley574/uicpipeline:develop
+else
+echo "PROMOTING TAG ..."
+docker image pull nickstanley574/uicpipeline:$BASE
+docker tag nickstanley574/uicpipeline:$BASE nickstanley574/uicpipeline:$PROMOT
+echo "$DOCKER_PASSWORD_TRAVIS" | docker login -u "$DOCKER_USERNAME_TRAVIS" --password-stdin
+docker push nickstanley574/uicpipeline:$PROMOT
+fi
+
+docker tag nickstanley574/uicpipeline:$TAG registry.heroku.com/uicpipeline-$TAG/web
+docker image ls 
+docker login -u "$HEROKU_USER" -p "$HEROKU_KEY" registry.heroku.com
+
 cat >~/.netrc <<EOF
 machine api.heroku.com
     login $HEROKU_USER
@@ -13,22 +44,6 @@ machine git.heroku.com
     password $HEROKU_KEY
 EOF
 
-if [ "$TRAVIS_BRANCH" == "master"]
-then
-TAG="latest"
-APP="uicpipeline"
-else
-TAG=$TRAVIS_BRANCH
-APP="uicpipeline-$TRAVIS_BRANCH"
-fi
-
-docker image pull nickstanley574/uicpipeline:$TAG
-docker tag nickstanley574/uicpipeline:$TAG registry.heroku.com/uicpipeline-$TAG/web
-
-docker login -u "$HEROKU_USER" -p "$HEROKU_KEY" registry.heroku.com
 heroku container:login
-
-docker image ls 
-
 heroku container:push web --app $APP
 heroku container:release web --app $APP
