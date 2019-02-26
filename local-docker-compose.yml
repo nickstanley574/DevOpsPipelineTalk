@@ -1,0 +1,10 @@
+# docker-compose.yml
+version: '3.7'
+
+services:
+  app:
+    image: $BRANCH
+    environment:
+      - PORT=8000
+    ports:
+      - 8000:8000

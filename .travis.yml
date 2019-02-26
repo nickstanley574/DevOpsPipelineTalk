@@ -1,8 +1,19 @@
-language: generic
+language: minimal
 
-services:
-  - docker
-
-script:
-  - bash .travis/main.sh
+git:
+  depth: 5
+jobs:
+  include:
+  - stage: Build
+    script: ".travis/build.sh"
+    if: "(branch = develop)"
+  - stage: Test
+    if: branch =~ /(feature\/.*|ops\/.*|develop)/
+    script: ".travis/tests.sh"
+  - stage: Deploy Approvls
+    if: (branch IN (develop,stage,master)) AND (type = pull_request)
+    script: "echo 'PLACEHOLDER'"
+  - stage: Deploy
+    if: (branch IN (develop,stage,master)) AND (type != pull_request)
+    script: ".travis/deploy.sh"
 
