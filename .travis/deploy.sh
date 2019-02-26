@@ -13,15 +13,22 @@ machine git.heroku.com
     password $HEROKU_KEY
 EOF
 
-docker image pull nickstanley574/pipeline-demo-protoype:develop
-docker tag nickstanley574/pipeline-demo-protoype:develop registry.heroku.com/develop-simplelookup/web
+if [ "$TRAVIS_BRANCH" == "master"]
+then
+TAG="latest"
+APP="uicpipeline"
+else
+TAG=$TRAVIS_BRANCH
+APP="uicpipeline-$TRAVIS_BRANCH"
+fi
+
+docker image pull nickstanley574/uicpipeline:$TAG
+docker tag nickstanley574/uicpipeline:$TAG registry.heroku.com/uicpipeline-$TAG/web
 
 docker login -u "$HEROKU_USER" -p "$HEROKU_KEY" registry.heroku.com
 heroku container:login
 
 docker image ls 
 
-heroku container:push web --app develop-simplelookup
-heroku container:release web --app develop-simplelookup
- 
-echo "Done!"
+heroku container:push web --app $APP
+heroku container:release web --app $APP
