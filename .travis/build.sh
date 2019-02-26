@@ -13,7 +13,7 @@ then
 fi
 
 echo "Build docker image ..."
-DOCKERRPO="nickstanley574/pipeline-demo-protoype"
+DOCKERRPO="nickstanley574/uicpipeline"
 docker build -t "buildimage" .
 
 IMAGE_ID=$(docker images -q buildimage)

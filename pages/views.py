@@ -2,4 +2,4 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 def homePageView(request):
-    return HttpResponse('Welcome to Simple Lookup!')
+    return HttpResponse('Welcome to to the UIC pipeline demo!')
