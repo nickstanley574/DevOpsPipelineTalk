@@ -32,6 +32,7 @@ fi
 docker tag nickstanley574/uicpipeline:$TAG registry.heroku.com/uicpipeline-$TAG/web
 docker image ls 
 docker login -u "$HEROKU_USER" -p "$HEROKU_KEY" registry.heroku.com
+docker push registry.heroku.com/uicpipeline-$TAG/web
 
 cat >~/.netrc <<EOF
 machine api.heroku.com
@@ -43,5 +44,5 @@ machine git.heroku.com
 EOF
 
 heroku container:login
-heroku container:push web --app $APP
+# heroku container:push web --app $APP
 heroku container:release web --app $APP
