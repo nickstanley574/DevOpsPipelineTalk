@@ -10,6 +10,15 @@ then
     ENVTAG='develop'
 fi
 
+cat >build.json <<EOF
+{
+  "travis_build_web_url": $TRAVIS_BUILD_WEB_URL,
+  "travis_build_id": $TRAVIS_BUILD_ID,
+  "travis_job_web_url": $TRAVIS_JOB_WEB_URL,
+  "travis_job_id": $TRAVIS_JOB_ID"
+}
+EOF
+
 BUILDTAG="build-$TRAVIS_BUILD_NUMBER"
 DOCKERRPO="nickstanley574/uicpipeline"
 docker build --quiet -t "buildimage" .
@@ -20,3 +29,4 @@ for tag in {$BUILDTAG,$ENVTAG}; do
     docker tag $IMAGE_ID $DOCKERRPO:$tag
     docker push $DOCKERRPO:$tag
 done
+
