@@ -12,7 +12,7 @@ fi
 
 BUILDTAG="build-$TRAVIS_BUILD_NUMBER"
 DOCKERRPO="nickstanley574/uicpipeline"
-docker build -quiet -t "buildimage" .
+docker build --quiet -t "buildimage" .
 IMAGE_ID=$(docker images -q buildimage)
 
 echo "$DOCKER_PASSWORD_TRAVIS" | docker login -u "$DOCKER_USERNAME_TRAVIS" --password-stdin
