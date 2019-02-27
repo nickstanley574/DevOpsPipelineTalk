@@ -2,7 +2,7 @@
 
 set -e
 
-cat .travis/display/test
+cat .travis/display/build
 
 git log -n 5 --pretty=format:"%h - %an, %ar : %s"
 
