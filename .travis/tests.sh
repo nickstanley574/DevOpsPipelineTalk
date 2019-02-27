@@ -1,7 +1,5 @@
 #! /bin/bash
-
 set -e
-
 cat .travis/display/test
 
 cat .travis/display/test-unit
