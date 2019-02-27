@@ -31,3 +31,4 @@ for tag in {$BUILDTAG,$ENVTAG}; do
     docker tag $IMAGE_ID $DOCKERRPO:$tag
     docker push $DOCKERRPO:$tag
 done
+

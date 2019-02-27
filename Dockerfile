@@ -18,4 +18,6 @@ RUN pipenv install --system --skip-lock
 # Copy project
 COPY . /code/
 
+COPY ./build.json /code/build.json
+
 CMD python /code/manage.py runserver 0.0.0.0:$PORT
