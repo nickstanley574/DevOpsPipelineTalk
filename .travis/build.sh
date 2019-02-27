@@ -1,7 +1,8 @@
 #! /bin/bash
 
 set -e
-set -x
+
+cat .travis/display/test
 
 git log -n 5 --pretty=format:"%h - %an, %ar : %s"
 

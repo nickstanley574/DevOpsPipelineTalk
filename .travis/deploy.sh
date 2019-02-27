@@ -2,7 +2,9 @@
 echo "deploying ..."
 
 set -e
-set -x 
+
+cat .travis/display/deploy
+
 
 TAG="$TRAVIS_BRANCH"
 APP="uicpipeline-$TRAVIS_BRANCH"
