@@ -18,9 +18,6 @@ def homePageView(request):
     <h3>Environment Information</h3>
     <ul>
         <li>Hostname: {}</li>
-        <li>travis_build_web_url: {}</li>
-        <li>travis_build_id: {}</li>
-        <li>travis_job_web_url: {}</li>
-        <li>travis_job_id: {}</li>
-    </ul> '''.format(socket.gethostname(), data['travis_build_web_url'], data['travis_build_id'],data['travis_job_web_url'],data['travis_job_id'])
+        <li>travis_build_id: <a href="{}">{}</a></li>
+    </ul> '''.format(socket.gethostname(), data['travis_build_web_url'], data['travis_build_id'])
     return HttpResponse(text)
