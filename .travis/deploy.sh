@@ -4,7 +4,7 @@ cat .travis/display/deploy
 set -x
 
 TAG="$TRAVIS_BRANCH"
-APP="uicpipeline-$TRAVIS_BRANCH"
+APP="uicpipeline-$TAG"
 
 if [ "$TRAVIS_BRANCH" == "stage" ]
 then 
@@ -32,7 +32,7 @@ fi
 docker tag nickstanley574/uicpipeline:$TAG registry.heroku.com/uicpipeline-$TAG/web
 docker image ls 
 docker login -u "$HEROKU_USER" -p "$HEROKU_KEY" registry.heroku.com
-docker push registry.heroku.com/uicpipeline-$TAG/web
+docker push registry.heroku.com/$APP/web
 
 cat >~/.netrc <<EOF
 machine api.heroku.com
