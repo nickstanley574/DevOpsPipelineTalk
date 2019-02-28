@@ -10,6 +10,8 @@ if [ "$TRAVIS_BRANCH" == "stage" ]
 then 
 BASE="develop"
 PROMOT="stage"
+echo "YOU SHALL NOT PASS!!!"
+exit 2 
 
 elif  [ "$TRAVIS_BRANCH" == "master" ]
 then

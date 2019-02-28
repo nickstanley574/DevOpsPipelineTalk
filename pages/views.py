@@ -11,7 +11,7 @@ def homePageView(request):
     text = '''
     <h2>Welcome to to the UIC pipeline demo!</h2>
 
-    <img src="https://marketplace-cdn.atlassian.com/s/public/devops-hero-1-87966cfbc9c5713ae047551c7b22985c.png" style="width: 50%; height: 50%">
+    <img src="https://cdn-images-1.medium.com/max/1600/1*QwJOyLmOeKOSCmCNXw1CUg.png" style="width: 50%; height: 50%">
 
     <hr>
 
