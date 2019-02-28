@@ -1,4 +1,4 @@
-# pipeline-demo-protoype
+# uicpipeline 
 Nicholas Stanley
 
 - [Django 'Hello, World' with Docker (wsvincent.com)](https://wsvincent.com/django-hello-world-with-docker/)
