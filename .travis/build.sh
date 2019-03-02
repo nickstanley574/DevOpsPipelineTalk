@@ -3,7 +3,7 @@ set -e
 cat .travis/display/build
 set -x
 
-git log -n 5 --pretty=format:"%h - %an, %ar : %s"
+git log -n 10 --pretty=format:"%h - %an, %ar : %s"
 
 if [ "$TRAVIS_BRANCH" == "develop" ] && [ "$TRAVIS_EVENT_TYPE" == "push" ]
 then
@@ -31,4 +31,3 @@ for tag in {$BUILDTAG,$ENVTAG}; do
     docker tag $IMAGE_ID $DOCKERRPO:$tag
     docker push $DOCKERRPO:$tag
 done
-
