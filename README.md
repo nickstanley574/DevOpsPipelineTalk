@@ -6,4 +6,4 @@ Nicholas Stanley
 - [Deploy docker container from external registry to Heroku (stackoverflow.com)](https://stackoverflow.com/questions/42611622/deploy-docker-container-from-external-registry-to-heroku)
 
 
-- [Link To Prez] (https://docs.google.com/presentation/d/1Oe085myfBEU9X9gafmYhpcdNLY59WMPlIWRxgqOfyrw/edit?usp=sharing)
+- [Link To Prez](https://docs.google.com/presentation/d/1Oe085myfBEU9X9gafmYhpcdNLY59WMPlIWRxgqOfyrw/edit?usp=sharing)
