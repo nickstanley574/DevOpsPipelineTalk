@@ -2,14 +2,16 @@ language: minimal
 
 git:
   depth: 5
-jobs:
-  include:
-  - stage: Build
-    script: ".travis/build.sh"
-    if: "(branch = develop)"
-  - stage: Tests
-    script: ".travis/tests.sh"
-  - stage: Deploy
-    if: (branch IN (develop,stage,master)) AND (type != pull_request)
-    script: ".travis/deploy.sh"
+script:
+  - .travis/main.sh
+# jobs:
+#   include:
+#   - stage: Build
+#     script: ".travis/build.sh"
+#     if: "(branch = develop)"
+#   - stage: Tests
+#     script: ".travis/tests.sh"
+#   - stage: Deploy
+#     if: (branch IN (develop,stage,master)) AND (type != pull_request)
+#     script: ".travis/deploy.sh"
 
